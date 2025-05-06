@@ -14,6 +14,7 @@ import Star from "./star.svg?react";
 import SwitcherIcon from "./switcherIcon.svg?react";
 import Table from "./table.svg?react";
 import UseGroup from "./useGroup.svg?react";
+import Loup from "./loup.svg?react";
 export const Icons = {
   Arrow,
   Blackboard,
@@ -31,4 +32,5 @@ export const Icons = {
   SwitcherIcon,
   Table,
   UseGroup,
+  Loup,
 };
