@@ -1,5 +1,11 @@
+import { Layout } from "./pages/Layout";
+
 function App() {
-  return <>App</>;
+  return (
+    <>
+      <Layout />
+    </>
+  );
 }
 
 export default App;
