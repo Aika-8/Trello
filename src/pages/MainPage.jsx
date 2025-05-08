@@ -2,7 +2,7 @@ import React from "react";
 import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import { Button } from "../components/UI/Button";
-import { CardList } from "../components/CardList";
+import { AddColumns } from "../components/UI/AddColumns";
 
 export const MainPage = () => {
   return (
@@ -65,13 +65,13 @@ export const MainPage = () => {
           </GroupBlackboard>
         </RightContainer>
       </StyledTopContainer>
-      <CardList />
+      <AddColumns />
     </StyledMain>
   );
 };
 const StyledMain = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   flex-direction: column;
   gap: 20px;

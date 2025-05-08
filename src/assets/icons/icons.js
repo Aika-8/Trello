@@ -20,6 +20,7 @@ import Circle from "./circle.svg?react";
 import Edit from "./edit.svg?react";
 import PlusBlack from "./plusBlack.svg?react";
 import KebabMenuForCard from "./kebabMenuForCard.svg?react";
+import Crestic from "./crestic.svg?react";
 import styled from "styled-components";
 const StyledIcons = (Component) => styled(Component)`
   width: 16px;
@@ -49,4 +50,5 @@ export const Icons = {
   Edit: StyledIcons(Edit),
   PlusBlack: StyledIcons(PlusBlack),
   KebabMenuForCard: StyledIcons(KebabMenuForCard),
+  Crestic: StyledIcons(Crestic),
 };
