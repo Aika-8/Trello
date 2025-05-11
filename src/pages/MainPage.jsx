@@ -2,7 +2,7 @@ import React from "react";
 import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import { Button } from "../components/UI/Button";
-import { AddColumns } from "../components/UI/AddColumns";
+import { AddColumns } from "../components/AddColumns";
 
 export const MainPage = () => {
   return (

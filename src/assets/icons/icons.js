@@ -21,6 +21,14 @@ import Edit from "./edit.svg?react";
 import PlusBlack from "./plusBlack.svg?react";
 import KebabMenuForCard from "./kebabMenuForCard.svg?react";
 import Crestic from "./crestic.svg?react";
+import downBlack from "./downBlack.svg?react";
+import upArrowIcon from "./upIcon.svg?react";
+import First from "./cardIcons/first.svg?react";
+import Second from "./cardIcons/second.svg?react";
+import Third from "./cardIcons/third.svg?react";
+import Fourth from "./cardIcons/fourth.svg?react";
+import Fivth from "./cardIcons/fivth.svg?react";
+import Sixth from "./cardIcons/sixth.svg?react";
 import styled from "styled-components";
 const StyledIcons = (Component) => styled(Component)`
   width: 16px;
@@ -51,4 +59,12 @@ export const Icons = {
   PlusBlack: StyledIcons(PlusBlack),
   KebabMenuForCard: StyledIcons(KebabMenuForCard),
   Crestic: StyledIcons(Crestic),
+  downBlack: StyledIcons(downBlack),
+  upArrowIcon: StyledIcons(upArrowIcon),
+  First: StyledIcons(First),
+  Second: StyledIcons(Second),
+  Third: StyledIcons(Third),
+  Fourth: StyledIcons(Fourth),
+  Fivth: StyledIcons(Fivth),
+  Sixth: StyledIcons(Sixth),
 };

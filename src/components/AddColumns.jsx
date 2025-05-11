@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Icons } from "../../assets/icons/icons";
+import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "./Button";
-import { getColumn, postColumn } from "../../store/thunks/columnsThunk";
-import { ColumnList } from "../ColumnList";
+import { Button } from "./UI/Button";
+import { getColumn, postColumn } from "../store/thunks/columnsThunk";
+import { ColumnList } from "./ColumnList";
 
 export const AddColumns = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const AddColumns = () => {
   return (
     <WrapperCards>
       <>
-        <ColumnList array={columnTitles}/>
+        <ColumnList array={columnTitles} />
         {!isOpenField && (
           <BlockAddingCard onClick={handleShowCardForm}>
             <Icons.Plus />
