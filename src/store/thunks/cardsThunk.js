@@ -29,7 +29,7 @@ export const updateCard = createAsyncThunk(
   async ({ id, title }, { rejectWithValue }) => {
     try {
       console.log(`Updating card with ID: ${id} and title: ${title}`); 
-      const { data } = await axiosInstance.put(`/cards/${id}`, { title });
+      const { data } = await axiosInstance.patch(`/cards/${id}`, { title });
       return data;
     } catch (error) {
       return rejectWithValue(error.message || "Something went wrong");

@@ -55,11 +55,6 @@ export const CardList = ({ array }) => {
               ) : (
                 <span>{item.title}</span>
               )}
-              {/* {editingId === item.id && (
-                <SaveButton onClick={() => handleSave(item.id, editValue)}>
-                  Сохранить
-                </SaveButton>
-              )} */}
             </WrapperUptdate>
           </ContainerCard>
           <IconEdit onClick={(e) => handleEditClick(e, item)} />
@@ -72,10 +67,17 @@ export const CardList = ({ array }) => {
       )}
       <ModalCard
         open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={() => {
+          setIsModalOpen(false);
+          if (isConfirmed) {
+            setEditingId(null);
+            setEditValue("");
+          }
+        }}
         top={modalPosition.top}
         left={modalPosition.left}
         cardId={modalCardId}
+        BackdropProps={{ invisible: true }}
       />
     </div>
   );
