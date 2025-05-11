@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosInstance } from "../../api/axiosInstance";
 
 export const postColumn = createAsyncThunk(
-  "colum/postColumn",
+  "column/postColumn",
   async (newColumn, { rejectWithValue }) => {
     try {
       const { data } = await axiosInstance.post("/column", newColumn);
@@ -13,10 +13,21 @@ export const postColumn = createAsyncThunk(
   }
 );
 export const getColumn = createAsyncThunk(
-  "colum/getColumn",
+  "column/getColumn",
   async (_, { rejectWithValue }) => {
     try {
       const { data } = await axiosInstance.get("/column");
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message || "Something went wrong");
+    }
+  }
+);
+export const deleteColumn = createAsyncThunk(
+  "column/deleteColumn",
+  async (columnId, { rejectWithValue }) => {
+    try {
+      const { data } = await axiosInstance.delete(`/column/${columnId}`);
       return data;
     } catch (error) {
       return rejectWithValue(error.message || "Something went wrong");

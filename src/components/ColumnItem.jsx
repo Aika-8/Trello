@@ -5,6 +5,7 @@ import { Icons } from "../assets/icons/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getCards, postCards } from "../store/thunks/cardsThunk";
 import { CardList } from "./CardList";
+import { ModalColumn } from "./modal/ModalColumn";
 
 export const ColumnItem = ({ title, columnId }) => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ export const ColumnItem = ({ title, columnId }) => {
   const filteredCards = cards.filter((card) => card.columnId === columnId);
   const [isOpenField, setIsOpenField] = useState(false);
   const [cardTitle, setCardTitle] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
   const handleAddCard = () => {
     setIsOpenField((prev) => !prev);
   };
@@ -29,7 +32,6 @@ export const ColumnItem = ({ title, columnId }) => {
       console.error("Ошибка при добавлении карточки:", error);
     }
     setCardTitle("");
-    // setIsOpenField(false);
   };
   useEffect(() => {
     dispatch(getCards());
@@ -45,7 +47,16 @@ export const ColumnItem = ({ title, columnId }) => {
             </span>
           </Button>
           <div>
-            <Button>
+            <Button
+              onClick={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                setModalPosition({
+                  top: rect.top + window.scrollY,
+                  left: rect.left + 20,
+                });
+                setIsModalOpen(true);
+              }}
+            >
               <span>
                 <Icons.KebabMenuForCard />
               </span>
@@ -53,7 +64,7 @@ export const ColumnItem = ({ title, columnId }) => {
           </div>
         </TopRightIconsGroup>
       </TopContainerOfCard>
-      <CardList array={filteredCards} />
+      <CardList array={filteredCards}  handleAddCard={handleAddCard}/>
       {!isOpenField && (
         <GroupAddingCard>
           <StyledButton onClick={handleAddCard}>
@@ -76,6 +87,14 @@ export const ColumnItem = ({ title, columnId }) => {
           </WrapperBtnCrestic>
         </AddCardForm>
       )}
+      <ModalColumn
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        top={modalPosition.top}
+        left={modalPosition.left}
+        columnId={columnId}
+        handleAddCard={handleAddCard}
+      />
     </ContainerCards>
   );
 };
