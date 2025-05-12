@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icons } from "../assets/icons/icons";
 import styled from "styled-components";
 import { Button } from "./UI/Button";
+import { useAuth } from "../context/AuthContext";
+import { Logout } from "./modal/Logout";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const { email, logout } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
+  const navigate = useNavigate();
+
   return (
     <StyledHeader>
       <LeftContainer>
@@ -34,9 +42,38 @@ export const Header = () => {
         <RightGroupInfo>
           <StyledRing />
           <QuestionMark />
-          <StyledBtnLogIn>Log in</StyledBtnLogIn>
+          {email ? (
+            <EmailDisplay>
+              {/* <Link to="/welcome"> */}
+              <UserEmailBtn
+                onClick={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  setModalPosition({
+                    top: rect.top + window.scrollY + 35,
+                    left: rect.left + 40,
+                  });
+                  setIsModalOpen(true);
+                }}
+              >
+                {email}
+              </UserEmailBtn>
+              {/* </Link> */}
+            </EmailDisplay>
+          ) : (
+            <StyledBtnLogIn>Log out</StyledBtnLogIn>
+          )}
         </RightGroupInfo>
       </RightContainer>
+      <Logout
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        top={modalPosition.top}
+        left={modalPosition.left}
+        onLogout={() => {
+          logout();
+          navigate("/welcome");
+        }}
+      />
     </StyledHeader>
   );
 };
@@ -180,4 +217,17 @@ const StyledBtnLogIn = styled(Button)`
     background-color: #ffffff3d;
     border-radius: 4px;
   }
+`;
+const EmailDisplay = styled.span`
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 4px;
+`;
+const UserEmailBtn = styled(Button)`
+  height: 36px;
+  background-color: #ffffff3d;
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
 `;

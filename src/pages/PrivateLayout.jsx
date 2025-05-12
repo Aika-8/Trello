@@ -1,12 +1,12 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
-import { MainPage } from "./MainPage";
 
-export const Layout = () => {
+export const PrivateLayout = () => {
   return (
     <div>
       <Header />
-      <MainPage />
+      <Outlet />
     </div>
   );
 };

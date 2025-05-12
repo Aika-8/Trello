@@ -69,7 +69,7 @@ export const MainPage = () => {
     </StyledMain>
   );
 };
-const StyledMain = styled.main`
+const StyledMain = styled.div`
   width: 100%;
   height: 95vh;
   display: flex;
