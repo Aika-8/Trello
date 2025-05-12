@@ -29,10 +29,24 @@ import Third from "./cardIcons/third.svg?react";
 import Fourth from "./cardIcons/fourth.svg?react";
 import Fivth from "./cardIcons/fivth.svg?react";
 import Sixth from "./cardIcons/sixth.svg?react";
+import Apple from "./signUp/appleLogo.svg?react";
+import Google from "./signUp/googleLogo.svg?react";
+import Microsoft from "./signUp/microsoftLogo.svg?react";
+import Attlassion from "./signUp/atlassion.svg?react";
+import Confidence from "./signUp/confidence.svg?react";
+import Logo from "./signUp/logo.svg?react";
+import SlackLogo from "./signUp/slackLogo.svg?react";
+import WelcomeLogo from "../icons/WelcomeIcons/LogoWelcome.svg?react";
+import DownBlackIcon from "../icons/WelcomeIcons/DownIconBlack.svg?react";
 import styled from "styled-components";
 const StyledIcons = (Component) => styled(Component)`
   width: 16px;
   height: 16px;
+  cursor: pointer;
+`;
+const StyledIconsSignIn = (Component) => styled(Component)`
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 `;
 export const Icons = {
@@ -67,4 +81,13 @@ export const Icons = {
   Fourth: StyledIcons(Fourth),
   Fivth: StyledIcons(Fivth),
   Sixth: StyledIcons(Sixth),
+  Apple: StyledIconsSignIn(Apple),
+  Google: StyledIconsSignIn(Google),
+  Microsoft: StyledIconsSignIn(Microsoft),
+  Attlassion: StyledIcons(Attlassion),
+  Confidence: StyledIcons(Confidence),
+  Logo: StyledIcons(Logo),
+  SlackLogo: StyledIconsSignIn(SlackLogo),
+  DownBlackIcon: StyledIcons(DownBlackIcon),
+  WelcomeLogo,
 };

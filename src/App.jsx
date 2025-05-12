@@ -1,9 +1,9 @@
-import { Layout } from "./pages/Layout";
+import { AppRouter } from "./routes/AppRouter";
 
 function App() {
   return (
     <>
-      <Layout />
+      <AppRouter />
     </>
   );
 }
