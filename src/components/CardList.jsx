@@ -60,7 +60,7 @@ export const CardList = ({ array }) => {
           <IconEdit onClick={(e) => handleEditClick(e, item)} />
         </StyledLi>
       ))}
-      {editingId && (
+      {editingId && isModalOpen && (
         <SaveButton onClick={() => handleSave(editingId, editValue)}>
           Сохранить
         </SaveButton>
